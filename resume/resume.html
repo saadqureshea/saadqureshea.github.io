@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Saad Qureshi — Full-Stack Developer</title>
+    <style>
+      /*
+        Print-first. Deliberately single-column with standard section
+        headings so applicant tracking systems parse it correctly — no
+        multi-column layout, no text baked into images, no icon fonts.
+      */
+      @page {
+        size: A4;
+        margin: 13mm 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        font-size: 9.6pt;
+        line-height: 1.42;
+        color: #1a1c2e;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: #4f46e5;
+        text-decoration: none;
+      }
+
+      /* ---------- header ---------- */
+      header {
+        border-bottom: 1.5pt solid #4f46e5;
+        padding-bottom: 7pt;
+        margin-bottom: 10pt;
+      }
+
+      h1 {
+        font-size: 21pt;
+        font-weight: 700;
+        letter-spacing: -0.5pt;
+        line-height: 1.1;
+      }
+
+      .role {
+        font-size: 10.5pt;
+        font-weight: 600;
+        color: #4f46e5;
+        margin-top: 1pt;
+      }
+
+      .contact {
+        margin-top: 5pt;
+        font-size: 8.8pt;
+        color: #4a4d63;
+      }
+
+      .contact span:not(:last-child)::after {
+        content: "·";
+        margin: 0 5pt;
+        color: #a5a8bd;
+      }
+
+      /* ---------- sections ---------- */
+      section {
+        margin-bottom: 9pt;
+      }
+
+      h2 {
+        font-size: 8.4pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1pt;
+        color: #4f46e5;
+        border-bottom: 0.6pt solid #dcdde8;
+        padding-bottom: 2.5pt;
+        margin-bottom: 6pt;
+      }
+
+      .summary {
+        color: #3a3d52;
+      }
+
+      /* ---------- entries ---------- */
+      .entry {
+        margin-bottom: 7.5pt;
+      }
+
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10pt;
+      }
+
+      .entry-title {
+        font-size: 10pt;
+        font-weight: 700;
+      }
+
+      .entry-meta {
+        font-size: 8.6pt;
+        color: #6b6e85;
+        white-space: nowrap;
+      }
+
+      .entry-sub {
+        font-size: 9pt;
+        color: #4f46e5;
+        font-weight: 500;
+        margin-top: 0.5pt;
+      }
+
+      ul {
+        margin-top: 3.5pt;
+        padding-left: 11pt;
+      }
+
+      li {
+        margin-bottom: 2.2pt;
+        color: #3a3d52;
+      }
+
+      li::marker {
+        color: #9497ad;
+      }
+
+      .stack {
+        margin-top: 3pt;
+        font-size: 8.5pt;
+        color: #6b6e85;
+      }
+
+      .stack strong {
+        color: #3a3d52;
+        font-weight: 600;
+      }
+
+      /* ---------- skills ---------- */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 3pt 9pt;
+        font-size: 9pt;
+      }
+
+      .skills-grid dt {
+        font-weight: 700;
+        color: #1a1c2e;
+        white-space: nowrap;
+      }
+
+      .skills-grid dd {
+        color: #3a3d52;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Saad Qureshi</h1>
+      <p class="role">Full-Stack Developer</p>
+      <p class="contact">
+        <span>Islamabad, Pakistan</span>
+        <span>saadqureshea123@gmail.com</span>
+        <span><a href="https://saadqureshea.github.io">saadqureshea.github.io</a></span>
+        <span><a href="https://github.com/saadqureshea">github.com/saadqureshea</a></span>
+        <span><a href="https://www.linkedin.com/in/saadqureshea">linkedin.com/in/saadqureshea</a></span>
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Computer science student and freelance developer who builds complete
+        web products — data model through to deployment. Shipped a production
+        site for a paying client and a full-stack marketplace handling live
+        payments, with a focus on the parts that are costly to get wrong:
+        payment integrity, permission boundaries, and commission arithmetic.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Freelance Web Developer</span>
+          <span class="entry-meta">DATES_PLACEHOLDER</span>
+        </div>
+        <p class="entry-sub">PureCheck Screening — New Orleans, LA (remote)</p>
+        <ul>
+          <li>
+            Built and shipped the production website for a drug, DNA, and
+            background screening business, now serving as the company's primary
+            customer acquisition channel.
+          </li>
+          <li>
+            Designed the site around a single conversion path — appointment
+            booking reduced to roughly two minutes, with entry points repeated
+            at every scroll depth rather than isolated on a contact page.
+          </li>
+          <li>
+            Structured three service lines (drug/alcohol, DNA, background
+            checks) on a shared page template, so new services can be added
+            without rebuilding pages.
+          </li>
+          <li>
+            Split the funnel for two audiences, giving employers a dedicated
+            workplace-screening track separate from consumer copy.
+          </li>
+        </ul>
+        <p class="stack"><strong>Stack:</strong> Next.js, React, Tailwind CSS, Vercel</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">KAITO MarketPlace</span>
+          <span class="entry-meta">2026</span>
+        </div>
+        <p class="entry-sub">Full-stack marketplace with live payments</p>
+        <ul>
+          <li>
+            Integrated Stripe Checkout with server-side price resolution — the
+            client sends an item ID and never an amount, so a tampered request
+            cannot alter what is charged.
+          </li>
+          <li>
+            Centralised commission logic in a single module (15% marketplace
+            fee + 5% processing, sellers keep 80%), freezing each order's
+            breakdown at purchase time so rate changes never rewrite financial
+            history.
+          </li>
+          <li>
+            Implemented five roles (buyer, seller, worker, employer, admin)
+            with per-role dashboards, route guards, and a pending-review
+            approval workflow gating all public listings.
+          </li>
+          <li>
+            Wrote unit tests targeting the two highest-risk paths — commission
+            arithmetic and role-guard middleware — plus bilingual English/Urdu
+            UI with full RTL support.
+          </li>
+        </ul>
+        <p class="stack">
+          <strong>Stack:</strong> React, Vite, Tailwind CSS, Node.js, Express,
+          MongoDB, Stripe, JWT
+        </p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">SkillSwap</span>
+          <span class="entry-meta">2025</span>
+        </div>
+        <p class="entry-sub">Peer-to-peer skill exchange mobile app</p>
+        <ul>
+          <li>
+            Built a React Native prototype letting students publish skills they
+            can teach and book sessions with peers, with offers tracked against
+            each profile.
+          </li>
+        </ul>
+        <p class="stack"><strong>Stack:</strong> React Native, Expo, JavaScript</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">BS Computer Science</span>
+          <span class="entry-meta">2023 — 2028 (expected)</span>
+        </div>
+        <p class="entry-sub">Abasyn University, Islamabad</p>
+        <ul>
+          <li>
+            Relevant coursework: operating systems, database systems, data
+            structures, object-oriented programming.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <dl class="skills-grid">
+        <dt>Languages</dt>
+        <dd>JavaScript, C++, Python, SQL, HTML, CSS</dd>
+        <dt>Frontend</dt>
+        <dd>React, Next.js, React Native, Vite, Tailwind CSS</dd>
+        <dt>Backend</dt>
+        <dd>Node.js, Express, MongoDB, REST APIs, JWT authentication</dd>
+        <dt>Tools</dt>
+        <dd>Git, GitHub, Stripe, Vercel, Netlify, Expo, Postman</dd>
+      </dl>
+    </section>
+  </body>
+</html>
