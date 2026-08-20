@@ -160,3 +160,61 @@ export const nav = [
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
+
+export const footer = {
+  monogram: "SQ",
+  tagline: "Let's build something that works.",
+  availability: "Open to internships · Islamabad, PK",
+  columns: [
+    {
+      heading: "Menu",
+      links: [
+        { label: "Home", href: "#top" },
+        { label: "About", href: "#about" },
+        { label: "Work", href: "#work" },
+        { label: "Skills", href: "#skills" },
+      ],
+    },
+    {
+      heading: "Projects",
+      links: [
+        {
+          label: "KAITO — live",
+          href: "https://idyllic-lamington-6ac121.netlify.app/",
+          external: true,
+        },
+        {
+          label: "KAITO — source",
+          href: "https://github.com/saadqureshea/kaito-marketplace",
+          external: true,
+        },
+        {
+          label: "SkillSwap",
+          href: "https://github.com/saadqureshea/skillswap-mvp",
+          external: true,
+        },
+        {
+          label: "Process Sync",
+          href: "https://github.com/saadqureshea/process-sync-visualizer-",
+          external: true,
+        },
+      ],
+    },
+    {
+      heading: "Socials",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/saadqureshea",
+          external: true,
+        },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/saadqureshea",
+          external: true,
+        },
+        { label: "Email", href: "mailto:saadqureshea123@gmail.com" },
+      ],
+    },
+  ],
+};
