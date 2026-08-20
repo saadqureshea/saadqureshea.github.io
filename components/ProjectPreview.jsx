@@ -1,8 +1,10 @@
 /**
- * Stylised UI mockups standing in for product screenshots. These are drawn in
- * markup rather than loaded as images so they stay sharp, theme-consistent,
- * and weightless. Swap any of them for a real screenshot by replacing the
- * component body with an <img>.
+ * Project previews.
+ *
+ * Sites with a live URL use real screenshots captured by `scripts/shots.mjs`
+ * (re-run it after a site changes). Anything without a public URL — a mobile
+ * app, an unpublished tool — falls back to a mockup drawn in markup, which
+ * stays sharp at any size and follows the active theme.
  */
 
 function BrowserChrome({ label, children }) {
@@ -21,67 +23,22 @@ function BrowserChrome({ label, children }) {
   );
 }
 
-/** KAITO: a storefront grid with a checkout summary showing the 80/20 split. */
-function MarketplaceMock() {
+/** A real screenshot framed in browser chrome. */
+function Shot({ src, label, alt }) {
   return (
-    <BrowserChrome label="kaito-marketplace">
-      <div className="grid gap-3 p-4 sm:grid-cols-[1.55fr_1fr]">
-        <div>
-          <div className="flex gap-1.5">
-            {["Products", "Made-to-order", "Services", "Work"].map((t, i) => (
-              <span
-                key={t}
-                className={`rounded px-1.5 py-1 text-[9px] ${
-                  i === 0
-                    ? "bg-accent/25 text-accent-bright"
-                    : "bg-fg/[0.04] text-fg/30"
-                }`}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="rounded-md border border-line/[0.06] bg-fg/[0.02] p-1.5"
-              >
-                <div className="h-8 rounded bg-gradient-to-br from-accent/25 to-fg/[0.03]" />
-                <div className="mt-1.5 h-1 w-3/4 rounded-full bg-fg/12" />
-                <div className="mt-1 h-1 w-1/3 rounded-full bg-accent/40" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-md border border-line/[0.07] bg-fg/[0.02] p-3">
-          <p className="text-[9px] uppercase tracking-wider text-fg/30">
-            Order summary
-          </p>
-          <div className="mt-2.5 space-y-1.5 text-[10px]">
-            <div className="flex justify-between text-fg/45">
-              <span>Item</span>
-              <span className="tabular-nums">$100.00</span>
-            </div>
-            <div className="flex justify-between text-fg/30">
-              <span>Marketplace 15%</span>
-              <span className="tabular-nums">−$15.00</span>
-            </div>
-            <div className="flex justify-between text-fg/30">
-              <span>Processing 5%</span>
-              <span className="tabular-nums">−$5.00</span>
-            </div>
-            <div className="mt-2 flex justify-between border-t border-line/[0.08] pt-2 font-medium text-accent-bright">
-              <span>Seller nets</span>
-              <span className="tabular-nums">$80.00</span>
-            </div>
-          </div>
-          <div className="mt-3 rounded bg-accent/85 py-1.5 text-center text-[9px] font-medium text-white">
-            Pay with Stripe
-          </div>
-        </div>
-      </div>
+    <BrowserChrome label={label}>
+      {/* Plain <img>: the export runs unoptimized, so next/image would only
+          add markup without doing any work. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        width={1440}
+        height={900}
+        loading="lazy"
+        decoding="async"
+        className="block w-full"
+      />
     </BrowserChrome>
   );
 }
@@ -147,9 +104,21 @@ function MobileMock() {
 /** Process Sync: a small Gantt-ish timeline of contending processes. */
 function VisualizerMock() {
   const rows = [
-    { label: "P1", bars: [[0, 32], [58, 22]] },
+    {
+      label: "P1",
+      bars: [
+        [0, 32],
+        [58, 22],
+      ],
+    },
     { label: "P2", bars: [[34, 22]] },
-    { label: "P3", bars: [[12, 18], [82, 16]] },
+    {
+      label: "P3",
+      bars: [
+        [12, 18],
+        [82, 16],
+      ],
+    },
   ];
 
   return (
@@ -182,79 +151,26 @@ function VisualizerMock() {
   );
 }
 
-/** PureCheck: service cards funnelling into the booking call-to-action. */
-function ScreeningMock() {
-  const services = ["Drug & Alcohol", "DNA Testing", "Background Checks"];
-
-  return (
-    <BrowserChrome label="purecheckscreening.com">
-      <div className="p-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="h-1.5 w-16 rounded-full bg-fg/20" />
-            <div className="mt-1.5 h-1 w-24 rounded-full bg-fg/10" />
-          </div>
-          <span className="rounded bg-accent px-2 py-1 text-[8px] font-semibold text-white">
-            Book now
-          </span>
-        </div>
-
-        <div className="mt-3.5 grid grid-cols-3 gap-2">
-          {services.map((s) => (
-            <div
-              key={s}
-              className="rounded-md border border-line/[0.07] bg-fg/[0.02] p-2"
-            >
-              <span className="flex h-5 w-5 items-center justify-center rounded border border-accent/25 bg-accent/10">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-accent-bright"
-                >
-                  <path d="M9 12l2 2 4-4" />
-                  <circle cx="12" cy="12" r="9" />
-                </svg>
-              </span>
-              <p className="mt-1.5 text-[7px] leading-tight text-fg/55">{s}</p>
-              <div className="mt-1 h-0.5 w-2/3 rounded-full bg-fg/10" />
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-3 rounded-md border border-accent/25 bg-accent/[0.07] p-2.5">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-[8px] font-medium text-fg/70">
-                Book an appointment
-              </p>
-              <p className="mt-0.5 text-[7px] text-fg/35">
-                ~2 min · Mon–Fri 9–7
-              </p>
-            </div>
-            <span className="rounded bg-accent px-2.5 py-1 text-[8px] font-semibold text-white">
-              Start
-            </span>
-          </div>
-        </div>
-      </div>
-    </BrowserChrome>
-  );
-}
-
-const MOCKS = {
-  purecheck: ScreeningMock,
-  kaito: MarketplaceMock,
+const PREVIEWS = {
+  purecheck: () => (
+    <Shot
+      src="./shots/purecheck.jpg"
+      label="purecheckscreening.com"
+      alt="PureCheck Screening homepage: a booking widget alongside drug, DNA, and background testing options"
+    />
+  ),
+  kaito: () => (
+    <Shot
+      src="./shots/kaito.jpg"
+      label="kaito-marketplace"
+      alt="KAITO MarketPlace homepage: search, buyer and seller entry points, and a grid of live listings"
+    />
+  ),
   skillswap: MobileMock,
   "process-sync": VisualizerMock,
 };
 
 export default function ProjectPreview({ slug }) {
-  const Mock = MOCKS[slug];
-  return Mock ? <Mock /> : null;
+  const Preview = PREVIEWS[slug];
+  return Preview ? <Preview /> : null;
 }
