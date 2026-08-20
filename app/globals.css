@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps so headings don't hide under the sticky nav. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-ink text-white/90 antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  /* The card treatment: a barely-there white wash over near-black, with a
+     slightly brighter hairline border. */
+  .surface {
+    @apply rounded-2xl border border-white/[0.08] bg-white/[0.02];
+  }
+
+  .surface-hover {
+    @apply transition-colors duration-300 hover:border-white/[0.14] hover:bg-white/[0.04];
+  }
+
+  /* A card whose border fades from indigo at the top-left to nothing.
+     Drawn as a padded gradient layer masked to the 1px edge, so the fill
+     underneath stays independent. */
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgb(99 102 241 / 0.55),
+      rgb(99 102 241 / 0.06) 38%,
+      rgb(255 255 255 / 0.06)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs font-medium text-white/70;
+  }
+
+  .section-label {
+    @apply mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-bright;
+  }
+
+  /* Headline treatment: white fading into indigo. */
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white to-accent-bright bg-clip-text text-transparent;
+  }
+
+  .text-gradient-dim {
+    @apply bg-gradient-to-br from-white/45 to-white/20 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  /* Faint graph-paper texture so large empty areas aren't dead flat. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Scroll-reveal: elements start shifted and fade in when observed. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Respect users who'd rather not have motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
