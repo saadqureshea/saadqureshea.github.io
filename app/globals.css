@@ -2,7 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Colour tokens are RGB triplets (no rgb() wrapper) so Tailwind's
+  `<alpha-value>` slot can apply opacity to them. Dark is the default;
+  `data-theme="light"` on <html> swaps the palette.
+*/
 @layer base {
+  :root {
+    --bg: 0 0 9;
+    --surface: 255 255 255;
+    --surface-2: 255 255 255;
+    --line: 255 255 255;
+    --line-strong: 255 255 255;
+    --fg: 255 255 255;
+    --muted: 255 255 255;
+    --subtle: 255 255 255;
+    --faint: 255 255 255;
+    --accent: 99 102 241;
+    --accent-bright: 129 140 248;
+    --accent-dim: 79 70 229;
+
+    /* Per-theme alpha values: on dark, overlays are white at low opacity;
+       on light they need to be much stronger to read at all. */
+    --surface-a: 0.02;
+    --surface-2-a: 0.04;
+    --line-a: 0.08;
+    --line-strong-a: 0.14;
+    --fg-a: 1;
+    --muted-a: 0.55;
+    --subtle-a: 0.4;
+    --faint-a: 0.25;
+    --grid-a: 0.028;
+    --glow-a: 0.13;
+    --shadow: 0 0 0;
+    /* Second headline line. Light text on dark can go very faint and stay
+       legible; dark text on white cannot, so these are per-theme. */
+    --dim-from: 0.45;
+    --dim-to: 0.22;
+  }
+
+  :root[data-theme="light"] {
+    --bg: 250 250 252;
+    --surface: 15 17 40;
+    --surface-2: 15 17 40;
+    --line: 15 17 40;
+    --line-strong: 15 17 40;
+    --fg: 12 14 32;
+    --muted: 12 14 32;
+    --subtle: 12 14 32;
+    --faint: 12 14 32;
+    --accent: 79 70 229;
+    --accent-bright: 67 56 202;
+    --accent-dim: 55 48 163;
+
+    --surface-a: 0.028;
+    --surface-2-a: 0.055;
+    --line-a: 0.1;
+    --line-strong-a: 0.18;
+    --fg-a: 1;
+    --muted-a: 0.68;
+    --subtle-a: 0.52;
+    --faint-a: 0.36;
+    --grid-a: 0.045;
+    --glow-a: 0.1;
+    --shadow: 15 17 40;
+    --dim-from: 0.6;
+    --dim-to: 0.42;
+  }
+
   html {
     scroll-behavior: smooth;
     /* Offset anchor jumps so headings don't hide under the sticky nav. */
@@ -10,28 +77,39 @@
   }
 
   body {
-    @apply bg-ink text-white/90 antialiased;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg) / var(--muted-a));
+    @apply antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   ::selection {
-    @apply bg-accent/30 text-white;
+    background-color: rgb(var(--accent) / 0.3);
+    color: rgb(var(--fg));
   }
 }
 
 @layer components {
-  /* The card treatment: a barely-there white wash over near-black, with a
-     slightly brighter hairline border. */
+  /* A barely-there wash over the page colour, with a hairline border. */
   .surface {
-    @apply rounded-2xl border border-white/[0.08] bg-white/[0.02];
+    @apply rounded-2xl;
+    background-color: rgb(var(--surface) / var(--surface-a));
+    border: 1px solid rgb(var(--line) / var(--line-a));
   }
 
   .surface-hover {
-    @apply transition-colors duration-300 hover:border-white/[0.14] hover:bg-white/[0.04];
+    @apply transition-colors duration-300;
   }
 
-  /* A card whose border fades from indigo at the top-left to nothing.
-     Drawn as a padded gradient layer masked to the 1px edge, so the fill
-     underneath stays independent. */
+  .surface-hover:hover {
+    background-color: rgb(var(--surface-2) / var(--surface-2-a));
+    border-color: rgb(var(--line) / var(--line-strong-a));
+  }
+
+  /* A border fading from accent at the top-left to nothing. Drawn as a
+     padded gradient masked to the 1px edge so the fill stays independent. */
   .gradient-border {
     position: relative;
   }
@@ -44,9 +122,9 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgb(99 102 241 / 0.55),
-      rgb(99 102 241 / 0.06) 38%,
-      rgb(255 255 255 / 0.06)
+      rgb(var(--accent) / 0.55),
+      rgb(var(--accent) / 0.06) 38%,
+      rgb(var(--line) / var(--line-a))
     );
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
@@ -57,20 +135,34 @@
   }
 
   .pill {
-    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs font-medium text-white/70;
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+    background-color: rgb(var(--surface) / var(--surface-2-a));
+    border: 1px solid rgb(var(--line) / var(--line-a));
+    color: rgb(var(--fg) / var(--muted-a));
   }
 
   .section-label {
-    @apply mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-bright;
+    @apply mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em];
+    color: rgb(var(--accent-bright));
   }
 
-  /* Headline treatment: white fading into indigo. */
   .text-gradient {
-    @apply bg-gradient-to-br from-white via-white to-accent-bright bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--fg)),
+      rgb(var(--fg)) 40%,
+      rgb(var(--accent-bright))
+    );
+    @apply bg-clip-text text-transparent;
   }
 
   .text-gradient-dim {
-    @apply bg-gradient-to-br from-white/45 to-white/20 bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--fg) / var(--dim-from)),
+      rgb(var(--fg) / var(--dim-to))
+    );
+    @apply bg-clip-text text-transparent;
   }
 }
 
@@ -78,9 +170,21 @@
   /* Faint graph-paper texture so large empty areas aren't dead flat. */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.028) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        rgb(var(--fg) / var(--grid-a)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgb(var(--fg) / var(--grid-a)) 1px,
+        transparent 1px
+      );
     background-size: 64px 64px;
+  }
+
+  .bg-glow {
+    background-color: rgb(var(--accent) / var(--glow-a));
   }
 
   /* Scroll-reveal: elements start shifted and fade in when observed. */

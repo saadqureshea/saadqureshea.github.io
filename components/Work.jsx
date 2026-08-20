@@ -12,7 +12,7 @@ function ArrowLink({ href, children, primary = false }) {
       className={`group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
         primary
           ? "bg-accent text-white shadow-lg shadow-accent/20 hover:bg-accent-dim hover:shadow-accent/30"
-          : "border border-white/[0.12] text-white/75 hover:border-white/25 hover:text-white"
+          : "border border-line/[0.12] text-fg/75 hover:border-line/25 hover:text-fg"
       }`}
     >
       {children}
@@ -56,15 +56,15 @@ function FeaturedProject({ project, index }) {
               <span className="font-mono text-xs text-accent-bright/70">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="h-px w-8 bg-white/10" />
-              <span className="text-xs text-white/30">{project.year}</span>
+              <span className="h-px w-8 bg-fg/10" />
+              <span className="text-xs text-fg/30">{project.year}</span>
             </div>
 
-            <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            <h3 className="mt-4 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
               {project.name}
             </h3>
             <p className="mt-2 text-lg text-accent-bright">{project.tagline}</p>
-            <p className="mt-5 leading-relaxed text-white/55">
+            <p className="mt-5 leading-relaxed text-fg/55">
               {project.summary}
             </p>
 
@@ -90,19 +90,19 @@ function FeaturedProject({ project, index }) {
         </div>
 
         {project.highlights.length > 0 && (
-          <div className="grid gap-px bg-white/[0.06] sm:grid-cols-2">
+          <div className="grid gap-px bg-fg/[0.06] sm:grid-cols-2">
             {project.highlights.map((h) => (
               <div
                 key={h.title}
-                className="group bg-ink p-6 transition-colors duration-300 hover:bg-white/[0.02]"
+                className="group bg-bg p-6 transition-colors duration-300 hover:bg-fg/[0.02]"
               >
                 <div className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-transform duration-300 group-hover:scale-150" />
                   <div>
-                    <h4 className="text-sm font-semibold text-white">
+                    <h4 className="text-sm font-semibold text-fg">
                       {h.title}
                     </h4>
-                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                    <p className="mt-2 text-sm leading-relaxed text-fg/50">
                       {h.body}
                     </p>
                   </div>
@@ -113,15 +113,15 @@ function FeaturedProject({ project, index }) {
         )}
 
         {project.extras.length > 0 && (
-          <div className="border-t border-white/[0.06] p-7 md:px-10">
-            <p className="mb-4 text-xs uppercase tracking-[0.18em] text-white/30">
+          <div className="border-t border-line/[0.06] p-7 md:px-10">
+            <p className="mb-4 text-xs uppercase tracking-[0.18em] text-fg/30">
               Also includes
             </p>
             <ul className="grid gap-2.5 sm:grid-cols-2">
               {project.extras.map((extra) => (
                 <li
                   key={extra}
-                  className="flex items-start gap-2.5 text-sm text-white/45"
+                  className="flex items-start gap-2.5 text-sm text-fg/45"
                 >
                   <svg
                     width="13"
@@ -153,11 +153,11 @@ function CompactProject({ project }) {
       <article className="surface surface-hover h-full p-7">
         <ProjectPreview slug={project.slug} />
         <div className="mt-6 flex items-baseline justify-between gap-3">
-          <h3 className="text-lg font-semibold text-white">{project.name}</h3>
-          <span className="text-sm text-white/30">{project.year}</span>
+          <h3 className="text-lg font-semibold text-fg">{project.name}</h3>
+          <span className="text-sm text-fg/30">{project.year}</span>
         </div>
         <p className="mt-1.5 text-sm text-accent-bright">{project.tagline}</p>
-        <p className="mt-4 text-sm leading-relaxed text-white/50">
+        <p className="mt-4 text-sm leading-relaxed text-fg/50">
           {project.summary}
         </p>
         <div className="mt-6">

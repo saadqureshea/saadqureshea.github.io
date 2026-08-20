@@ -2,7 +2,11 @@
 // touching component markup. Anything marked TODO still needs Saad's input.
 
 export const profile = {
-  name: "Saad Qureshea",
+  // Display name is the real one; `saadqureshea` is only the GitHub handle,
+  // taken because the preferred username wasn't available.
+  name: "Saad Qureshi",
+  nameParts: { bold: "Saad", light: "qureshi" },
+  handle: "saadqureshea",
   role: "Full-Stack Developer",
   location: "Islamabad, Pakistan",
   email: "saadqureshea123@gmail.com",

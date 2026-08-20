@@ -8,7 +8,7 @@ export default function About() {
       <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
         <Reveal className="space-y-5">
           {about.paragraphs.map((text, i) => (
-            <p key={i} className="leading-relaxed text-white/60 md:text-lg">
+            <p key={i} className="leading-relaxed text-fg/60 md:text-lg">
               {text}
             </p>
           ))}
@@ -18,10 +18,10 @@ export default function About() {
           {about.facts.map((fact, i) => (
             <Reveal key={fact.label} delay={i * 70}>
               <div className="surface surface-hover h-full p-5">
-                <dt className="text-xs uppercase tracking-wider text-white/35">
+                <dt className="text-xs uppercase tracking-wider text-fg/35">
                   {fact.label}
                 </dt>
-                <dd className="mt-1.5 text-sm font-medium text-white">
+                <dd className="mt-1.5 text-sm font-medium text-fg">
                   {fact.value}
                 </dd>
               </div>

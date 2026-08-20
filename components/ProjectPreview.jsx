@@ -7,12 +7,12 @@
 
 function BrowserChrome({ label, children }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-white/[0.09] bg-white/[0.015]">
-      <div className="flex items-center gap-2 border-b border-white/[0.07] bg-white/[0.02] px-3 py-2.5">
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <div className="ml-2 flex-1 truncate rounded bg-white/[0.04] px-2 py-1 text-[10px] text-white/30">
+    <div className="overflow-hidden rounded-xl border border-line/[0.09] bg-fg/[0.015]">
+      <div className="flex items-center gap-2 border-b border-line/[0.07] bg-fg/[0.02] px-3 py-2.5">
+        <span className="h-2 w-2 rounded-full bg-fg/15" />
+        <span className="h-2 w-2 rounded-full bg-fg/15" />
+        <span className="h-2 w-2 rounded-full bg-fg/15" />
+        <div className="ml-2 flex-1 truncate rounded bg-fg/[0.04] px-2 py-1 text-[10px] text-fg/30">
           {label}
         </div>
       </div>
@@ -34,7 +34,7 @@ function MarketplaceMock() {
                 className={`rounded px-1.5 py-1 text-[9px] ${
                   i === 0
                     ? "bg-accent/25 text-accent-bright"
-                    : "bg-white/[0.04] text-white/30"
+                    : "bg-fg/[0.04] text-fg/30"
                 }`}
               >
                 {t}
@@ -45,34 +45,34 @@ function MarketplaceMock() {
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-md border border-white/[0.06] bg-white/[0.02] p-1.5"
+                className="rounded-md border border-line/[0.06] bg-fg/[0.02] p-1.5"
               >
-                <div className="h-8 rounded bg-gradient-to-br from-accent/25 to-white/[0.03]" />
-                <div className="mt-1.5 h-1 w-3/4 rounded-full bg-white/12" />
+                <div className="h-8 rounded bg-gradient-to-br from-accent/25 to-fg/[0.03]" />
+                <div className="mt-1.5 h-1 w-3/4 rounded-full bg-fg/12" />
                 <div className="mt-1 h-1 w-1/3 rounded-full bg-accent/40" />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="rounded-md border border-white/[0.07] bg-white/[0.02] p-3">
-          <p className="text-[9px] uppercase tracking-wider text-white/30">
+        <div className="rounded-md border border-line/[0.07] bg-fg/[0.02] p-3">
+          <p className="text-[9px] uppercase tracking-wider text-fg/30">
             Order summary
           </p>
           <div className="mt-2.5 space-y-1.5 text-[10px]">
-            <div className="flex justify-between text-white/45">
+            <div className="flex justify-between text-fg/45">
               <span>Item</span>
               <span className="tabular-nums">$100.00</span>
             </div>
-            <div className="flex justify-between text-white/30">
+            <div className="flex justify-between text-fg/30">
               <span>Marketplace 15%</span>
               <span className="tabular-nums">−$15.00</span>
             </div>
-            <div className="flex justify-between text-white/30">
+            <div className="flex justify-between text-fg/30">
               <span>Processing 5%</span>
               <span className="tabular-nums">−$5.00</span>
             </div>
-            <div className="mt-2 flex justify-between border-t border-white/[0.08] pt-2 font-medium text-accent-bright">
+            <div className="mt-2 flex justify-between border-t border-line/[0.08] pt-2 font-medium text-accent-bright">
               <span>Seller nets</span>
               <span className="tabular-nums">$80.00</span>
             </div>
@@ -90,31 +90,31 @@ function MarketplaceMock() {
 function MobileMock() {
   return (
     <div className="flex justify-center gap-4 py-2">
-      <div className="w-[124px] overflow-hidden rounded-[16px] border border-white/[0.1] bg-white/[0.02] p-2">
-        <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-white/15" />
-        <p className="text-[8px] font-medium text-white/60">Skills near you</p>
+      <div className="w-[124px] overflow-hidden rounded-[16px] border border-line/[0.1] bg-fg/[0.02] p-2">
+        <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-fg/15" />
+        <p className="text-[8px] font-medium text-fg/60">Skills near you</p>
         {["Calculus II", "Figma basics", "Spanish"].map((s, i) => (
           <div
             key={s}
-            className="mt-1.5 rounded border border-white/[0.06] bg-white/[0.02] p-1.5"
+            className="mt-1.5 rounded border border-line/[0.06] bg-fg/[0.02] p-1.5"
           >
             <div className="flex items-center gap-1.5">
               <div
                 className={`h-3.5 w-3.5 rounded-full ${
-                  i === 0 ? "bg-accent/50" : "bg-white/10"
+                  i === 0 ? "bg-accent/50" : "bg-fg/10"
                 }`}
               />
               <div className="flex-1">
-                <p className="text-[7px] text-white/55">{s}</p>
-                <div className="mt-0.5 h-0.5 w-2/3 rounded-full bg-white/10" />
+                <p className="text-[7px] text-fg/55">{s}</p>
+                <div className="mt-0.5 h-0.5 w-2/3 rounded-full bg-fg/10" />
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-5 w-[124px] overflow-hidden rounded-[16px] border border-white/[0.1] bg-white/[0.02] p-2">
-        <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-white/15" />
+      <div className="mt-5 w-[124px] overflow-hidden rounded-[16px] border border-line/[0.1] bg-fg/[0.02] p-2">
+        <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-fg/15" />
         <div className="rounded border border-accent/25 bg-accent/10 p-2 text-center">
           <div className="mx-auto flex h-5 w-5 items-center justify-center rounded-full bg-accent/35">
             <svg
@@ -126,17 +126,17 @@ function MobileMock() {
               strokeWidth="3.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-white"
+              className="text-fg"
             >
               <path d="M20 6 9 17l-5-5" />
             </svg>
           </div>
-          <p className="mt-1.5 text-[7px] text-white/70">Session booked</p>
-          <p className="mt-0.5 text-[6px] text-white/35">Thu · 4:00 PM</p>
+          <p className="mt-1.5 text-[7px] text-fg/70">Session booked</p>
+          <p className="mt-0.5 text-[6px] text-fg/35">Thu · 4:00 PM</p>
         </div>
         <div className="mt-2 space-y-1">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-1 rounded-full bg-white/[0.07]" />
+            <div key={i} className="h-1 rounded-full bg-fg/[0.07]" />
           ))}
         </div>
       </div>
@@ -157,8 +157,8 @@ function VisualizerMock() {
       <div className="space-y-2 p-4">
         {rows.map((row) => (
           <div key={row.label} className="flex items-center gap-2">
-            <span className="w-5 text-[9px] text-white/35">{row.label}</span>
-            <div className="relative h-3 flex-1 rounded bg-white/[0.03]">
+            <span className="w-5 text-[9px] text-fg/35">{row.label}</span>
+            <div className="relative h-3 flex-1 rounded bg-fg/[0.03]">
               {row.bars.map(([left, width], i) => (
                 <span
                   key={i}
@@ -171,7 +171,7 @@ function VisualizerMock() {
         ))}
         <div className="flex items-center gap-2 pt-1">
           <span className="w-5" />
-          <div className="flex flex-1 justify-between text-[8px] text-white/20">
+          <div className="flex flex-1 justify-between text-[8px] text-fg/20">
             {["t0", "t1", "t2", "t3", "t4"].map((t) => (
               <span key={t}>{t}</span>
             ))}

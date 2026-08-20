@@ -20,12 +20,12 @@ export default function Contact() {
 
         <div className="relative text-center">
           <p className="section-label justify-center">Contact</p>
-          <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
+          <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-[-0.02em] text-fg md:text-5xl">
             Building something?
             <br />
-            <span className="text-white/40">I&rsquo;d like to hear about it.</span>
+            <span className="text-fg/40">I&rsquo;d like to hear about it.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-lg text-white/50">
+          <p className="mx-auto mt-5 max-w-lg text-fg/50">
             Open to internships, junior roles, and freelance work. The fastest
             way to reach me is email.
           </p>
@@ -46,10 +46,10 @@ export default function Contact() {
                 rel="noreferrer"
                 className="surface surface-hover p-5 text-left"
               >
-                <p className="text-xs uppercase tracking-wider text-white/35">
+                <p className="text-xs uppercase tracking-wider text-fg/35">
                   {link.label}
                 </p>
-                <p className="mt-1.5 truncate text-sm text-white/80">
+                <p className="mt-1.5 truncate text-sm text-fg/80">
                   {link.value}
                 </p>
               </a>

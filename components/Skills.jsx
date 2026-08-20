@@ -59,14 +59,14 @@ export default function Skills() {
           <Reveal key={group.group} delay={i * 70}>
             <div className="surface surface-hover h-full p-6">
               <GroupIcon name={group.group} />
-              <h3 className="mt-4 text-sm font-semibold text-white">
+              <h3 className="mt-4 text-sm font-semibold text-fg">
                 {group.group}
               </h3>
               <ul className="mt-4 space-y-2.5">
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2 text-sm text-white/50"
+                    className="flex items-center gap-2 text-sm text-fg/50"
                   >
                     <span className="h-1 w-1 rounded-full bg-accent/60" />
                     {item}
@@ -79,7 +79,7 @@ export default function Skills() {
       </div>
 
       <div className="mt-16">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-fg/35">
           Education
         </h3>
         <div className="mt-6 space-y-4">
@@ -104,18 +104,18 @@ export default function Skills() {
                     </svg>
                   </span>
                   <div>
-                    <p className="font-medium text-white">{entry.credential}</p>
-                    <p className="mt-1 text-sm text-white/50">
+                    <p className="font-medium text-fg">{entry.credential}</p>
+                    <p className="mt-1 text-sm text-fg/50">
                       {entry.institution}
                     </p>
                     {entry.detail && (
-                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/40">
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg/40">
                         {entry.detail}
                       </p>
                     )}
                   </div>
                 </div>
-                <span className="shrink-0 text-sm text-white/30">
+                <span className="shrink-0 text-sm text-fg/30">
                   {entry.period}
                 </span>
               </div>

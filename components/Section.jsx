@@ -9,11 +9,11 @@ export default function Section({ id, label, title, intro, children }) {
             <span className="h-px w-6 bg-accent-bright/50" />
             {label}
           </p>
-          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl">
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.02em] text-fg md:text-4xl">
             {title}
           </h2>
           {intro && (
-            <p className="mt-4 max-w-2xl text-white/50 md:text-lg">{intro}</p>
+            <p className="mt-4 max-w-2xl text-fg/50 md:text-lg">{intro}</p>
           )}
         </Reveal>
         <div className="mt-12">{children}</div>

@@ -2,11 +2,11 @@ import { footer, profile } from "../app/data";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.08]">
+    <footer className="relative overflow-hidden border-t border-line/[0.08]">
       {/* Oversized monogram watermark, echoing the hero's bloom. */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 select-none text-[13rem] font-bold leading-none tracking-tighter text-white/[0.022] lg:block"
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 select-none text-[13rem] font-bold leading-none tracking-tighter text-fg/[0.022] lg:block"
       >
         {footer.monogram}
       </span>
@@ -19,11 +19,11 @@ export default function Footer() {
               {footer.monogram}
             </span>
 
-            <h2 className="mt-5 text-xl font-semibold tracking-tight text-white">
+            <h2 className="mt-5 text-xl font-semibold tracking-tight text-fg">
               {footer.tagline}
             </h2>
 
-            <p className="mt-4 text-sm leading-relaxed text-white/45">
+            <p className="mt-4 text-sm leading-relaxed text-fg/45">
               {profile.name} — {profile.role}
               <br />
               {footer.availability}
@@ -33,12 +33,12 @@ export default function Footer() {
                 Saad doesn't have would be a dead control, so this is a real
                 mail link instead. */}
             <div className="mt-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fg/35">
                 Get in touch
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className="group mt-3 inline-flex items-center gap-3 rounded-full border border-white/[0.12] bg-white/[0.02] py-1.5 pl-5 pr-1.5 text-sm text-white/75 transition-colors hover:border-accent/40 hover:text-white"
+                className="group mt-3 inline-flex items-center gap-3 rounded-full border border-line/[0.12] bg-fg/[0.02] py-1.5 pl-5 pr-1.5 text-sm text-fg/75 transition-colors hover:border-accent/40 hover:text-fg"
               >
                 {profile.email}
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-0.5">
@@ -63,7 +63,7 @@ export default function Footer() {
           {/* Link columns */}
           {footer.columns.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-fg">
                 {column.heading}
               </h3>
               <ul className="mt-5 space-y-3.5">
@@ -73,7 +73,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noreferrer" : undefined}
-                      className="text-sm text-white/45 transition-colors hover:text-accent-bright"
+                      className="text-sm text-fg/45 transition-colors hover:text-accent-bright"
                     >
                       {link.label}
                     </a>
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/[0.08] pt-7 text-sm text-white/35 sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-line/[0.08] pt-7 text-sm text-fg/35 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>
@@ -95,7 +95,7 @@ export default function Footer() {
               href={profile.github}
               target="_blank"
               rel="noreferrer"
-              className="text-accent-bright transition-colors hover:text-white"
+              className="text-accent-bright transition-colors hover:text-fg"
             >
               {profile.name}
             </a>
