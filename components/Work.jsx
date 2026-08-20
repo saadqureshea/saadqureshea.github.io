@@ -52,12 +52,17 @@ function FeaturedProject({ project, index }) {
       <article className="surface gradient-border overflow-hidden">
         <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-12">
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <span className="font-mono text-xs text-accent-bright/70">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="h-px w-8 bg-fg/10" />
               <span className="text-xs text-fg/30">{project.year}</span>
+              {project.kind === "Client work" && (
+                <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-bright">
+                  {project.kind}
+                </span>
+              )}
             </div>
 
             <h3 className="mt-4 text-2xl font-semibold tracking-tight text-fg md:text-3xl">

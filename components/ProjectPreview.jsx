@@ -182,7 +182,73 @@ function VisualizerMock() {
   );
 }
 
+/** PureCheck: service cards funnelling into the booking call-to-action. */
+function ScreeningMock() {
+  const services = ["Drug & Alcohol", "DNA Testing", "Background Checks"];
+
+  return (
+    <BrowserChrome label="purecheckscreening.com">
+      <div className="p-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="h-1.5 w-16 rounded-full bg-fg/20" />
+            <div className="mt-1.5 h-1 w-24 rounded-full bg-fg/10" />
+          </div>
+          <span className="rounded bg-accent px-2 py-1 text-[8px] font-semibold text-white">
+            Book now
+          </span>
+        </div>
+
+        <div className="mt-3.5 grid grid-cols-3 gap-2">
+          {services.map((s) => (
+            <div
+              key={s}
+              className="rounded-md border border-line/[0.07] bg-fg/[0.02] p-2"
+            >
+              <span className="flex h-5 w-5 items-center justify-center rounded border border-accent/25 bg-accent/10">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-accent-bright"
+                >
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+              </span>
+              <p className="mt-1.5 text-[7px] leading-tight text-fg/55">{s}</p>
+              <div className="mt-1 h-0.5 w-2/3 rounded-full bg-fg/10" />
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-3 rounded-md border border-accent/25 bg-accent/[0.07] p-2.5">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-[8px] font-medium text-fg/70">
+                Book an appointment
+              </p>
+              <p className="mt-0.5 text-[7px] text-fg/35">
+                ~2 min · Mon–Fri 9–7
+              </p>
+            </div>
+            <span className="rounded bg-accent px-2.5 py-1 text-[8px] font-semibold text-white">
+              Start
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserChrome>
+  );
+}
+
 const MOCKS = {
+  purecheck: ScreeningMock,
   kaito: MarketplaceMock,
   skillswap: MobileMock,
   "process-sync": VisualizerMock,

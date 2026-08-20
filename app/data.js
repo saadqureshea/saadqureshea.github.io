@@ -20,15 +20,16 @@ export const profile = {
 // Deliberately factual: each of these is verifiable from the repos, not
 // invented social proof.
 export const heroStats = [
-  { value: "3", label: "Projects shipped" },
-  { value: "1", label: "Live in production" },
+  { value: "4", label: "Projects shipped" },
+  { value: "1", label: "Client site live" },
   { value: "5", label: "Roles modelled" },
   { value: "2", label: "Languages supported" },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm a computer science student who learns by building things that have to actually work. Not tutorials — products with real payment flows, real permission boundaries, and real edge cases to get wrong.",
+    "I'm a computer science student who learns by building things that have to actually work. Not tutorials — products with real payment flows, real permission boundaries, and real customers on the other end.",
+    "Some of that is client work: PureCheck Screening is a live business in the New Orleans metro whose website I built and shipped. Real deadlines, real stakes, someone else's revenue depending on the booking flow not breaking.",
     "My current focus is KAITO MarketPlace, a full-stack marketplace where money changes hands. That constraint is the interesting part: prices get resolved server-side so the client can never set them, commission math lives in exactly one file, and every order freezes its own fee breakdown so historical records stay accurate even when rates change.",
     "Alongside the JavaScript work I'm deepening my fundamentals in C++, Python, and database systems — the layer underneath the frameworks.",
   ],
@@ -42,11 +43,50 @@ export const about = {
 
 export const projects = [
   {
+    slug: "purecheck",
+    name: "PureCheck Screening",
+    tagline: "A live business running on software I built.",
+    year: "2026",
+    featured: true,
+    kind: "Client work",
+    summary:
+      "A production website for a drug, DNA, and background screening company serving the New Orleans metro area — the booking funnel, service catalogue, and employer pages that the business actually runs on.",
+    highlights: [
+      {
+        title: "Booking as the primary path",
+        body: "The whole site funnels toward one action. Appointment setup is pared down to roughly two minutes, with the booking entry point repeated at every scroll depth rather than buried on a contact page.",
+      },
+      {
+        title: "Three service lines, one structure",
+        body: "Drug and alcohol testing, DNA testing, and background checks each carry different options and compliance language, but share a single page template — so adding a service doesn't mean rebuilding a page.",
+      },
+      {
+        title: "Two audiences, one site",
+        body: "Individuals and employers want different things, so employers get a dedicated track for workplace screening programmes instead of being funnelled through consumer copy.",
+      },
+      {
+        title: "Reachable the way clients actually reach out",
+        body: "WhatsApp, phone, an email form, and online booking sit side by side, because a walk-in customer and an HR manager don't use the same channel.",
+      },
+    ],
+    extras: [
+      "Multi-page: Home, Services, Employers, About, FAQ, Contact",
+      "Flexible collection: on-site, mobile, or at the workplace",
+      "Chain-of-custody and HIPAA-aware privacy copy",
+      "Service-area and opening-hours handling",
+    ],
+    stack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    links: {
+      live: "https://www.purecheckscreening.com/",
+    },
+  },
+  {
     slug: "kaito",
     name: "KAITO MarketPlace",
     tagline: "A marketplace where money actually moves.",
     year: "2026",
     featured: true,
+    kind: "Personal project",
     summary:
       "A full-stack digital marketplace and remote-work platform spanning four verticals — digital products, made-to-order goods, services, and job postings — with Stripe payments and a five-role permission system.",
     highlights: [
@@ -94,6 +134,7 @@ export const projects = [
     tagline: "Students trading skills instead of cash.",
     year: "2025",
     featured: true,
+    kind: "Personal project",
     summary:
       "A React Native prototype where students list a skill they can teach and book sessions with peers who have one they need. Built around the idea that a campus is already full of expertise that never gets traded.",
     highlights: [
@@ -118,6 +159,7 @@ export const projects = [
     tagline: "Watching concurrency problems happen.",
     year: "2026",
     featured: false,
+    kind: "Coursework",
     summary:
       "An interactive visualizer for operating-system process synchronisation — the classic race conditions and scheduling problems rendered as something you can watch step through, rather than trace on paper.",
     highlights: [],
@@ -182,6 +224,11 @@ export const footer = {
     {
       heading: "Projects",
       links: [
+        {
+          label: "PureCheck Screening",
+          href: "https://www.purecheckscreening.com/",
+          external: true,
+        },
         {
           label: "KAITO — live",
           href: "https://idyllic-lamington-6ac121.netlify.app/",

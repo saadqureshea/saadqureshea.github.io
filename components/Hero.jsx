@@ -8,17 +8,17 @@ import ProjectPreview from "./ProjectPreview";
 function WorkStack() {
   return (
     <div className="group relative mx-auto w-full max-w-[540px] lg:max-w-none">
-      {/* Back card — Process Sync */}
+      {/* Back card — SkillSwap */}
       <div className="absolute inset-x-6 top-2 origin-bottom-left rotate-[-6deg] opacity-55 transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:-translate-y-1">
         <div className="surface overflow-hidden p-2 shadow-2xl">
-          <ProjectPreview slug="process-sync" />
+          <ProjectPreview slug="skillswap" />
         </div>
       </div>
 
-      {/* Middle card — SkillSwap */}
+      {/* Middle card — PureCheck, the live client site */}
       <div className="absolute inset-x-3 top-8 origin-bottom-right rotate-[4deg] opacity-80 transition-transform duration-500 group-hover:rotate-[6deg] group-hover:translate-y-1">
         <div className="surface overflow-hidden p-2 shadow-2xl">
-          <ProjectPreview slug="skillswap" />
+          <ProjectPreview slug="purecheck" />
         </div>
       </div>
 
